@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  titiler:
+    image: ghcr.io/developmentseed/titiler:latest
+    container_name: titiler
+    command: uvicorn titiler.application.main:app --host 0.0.0.0 --port 8081
+    ports:
+      - "8081:8081"
+
+  api:
+    build: ./api               
+    container_name: explorer-api
+    environment:
+      - STAC_URL=https://earth-search.aws.element84.com/v1
+    volumes:
+      - ./data:/app/data:ro   
+    ports:
+      - "8000:8000"
+    depends_on:
+      - titiler
