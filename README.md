@@ -69,30 +69,30 @@ geospatial-explorer/
 │   │   ├── test/             # Frontend tests (Vitest + RTL)
 │   │   ├── App.tsx           # Main app
 │   │   └── main.tsx          # React entry point
+├   ├── .env    
 │   ├── vite.config.ts        # Vite bundler config
 │   ├── package.json
 │   └── index.html
 │
-├── docker-compose.yml        # Orchestration
-├── .env                      # Environment config
+├── docker-compose.yml        # Orchestration                    # Environment config
 └── README.md                 # Documentation
 ```
 
 ### Data Flow
 
-```mermaid
+```
 flowchart LR
-  subgraph Frontend [Frontend (React + MapLibre)]
+  subgraph Frontend["Frontend (React + MapLibre)"]
     A[Load AOI GeoJSON] --> B[STAC Query UI]
     B --> C[Display Map + Raster Layer]
   end
 
-  subgraph Backend [FastAPI Proxy]
+  subgraph Backend["FastAPI Proxy"]
     D[AOI Endpoint] --> E[STAC API Call]
     E --> F[Return imagery + metadata]
   end
 
-  subgraph TiTiler [TiTiler Service]
+  subgraph TiTiler["TiTiler Service"]
     G[Stream COG Raster Tiles]
   end
 
@@ -101,6 +101,7 @@ flowchart LR
   Backend --> Frontend
   Backend --> TiTiler
   TiTiler --> Frontend
+
 ```
 
 ---
