@@ -166,6 +166,17 @@ flowchart LR
 
 * **CI-ready**: tests can run locally or in Docker.
 
+### Test Frontend
+
+```bash
+npm run test
+```
+
+### Test Backend
+
+```bash
+pytest
+```
 
 
 ## Decisions & Trade-offs
