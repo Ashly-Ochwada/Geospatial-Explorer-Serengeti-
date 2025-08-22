@@ -60,19 +60,37 @@ geospatial-explorer/
 │   ├── Dockerfile
 │   └── requirements.txt
 │
-├── frontend/                 # React + MapLibre frontend
-│   ├── public/               # Static assets
+├── frontend/                      # React + MapLibre frontend
+│   ├── public/                    # Static assets (favicon, index.html, etc.)
+│   │
 │   ├── src/
-│   │   ├── assets/           # Logos/icons
-│   │   ├── lib/              # Helpers (geo utils, types)
-│   │   ├── map/              # MapLibre components
-│   │   ├── test/             # Frontend tests (Vitest + RTL)
-│   │   ├── App.tsx           # Main app
-│   │   └── main.tsx          # React entry point
-├   ├── .env    
-│   ├── vite.config.ts        # Vite bundler config
-│   ├── package.json
-│   └── index.html
+│   │   ├── __tests__/             # Unit/integration tests (Vitest + RTL)
+│   │   │   └── search-behavior.test.tsx
+│   │   │
+│   │   ├── assets/                # Logos / icons (e.g., react.svg)
+│   │   ├── lib/                   # Helpers and shared types
+│   │   │   └── type.ts
+│   │   ├── map/                   # Map components (MapLibre logic)
+│   │   │   └── MapView.tsx
+│   │   ├── test/                  # Testing utilities
+│   │   │   └── (helpers for Vitest/RTL)
+│   │   │
+│   │   ├── App.tsx                # Main React app component
+│   │   ├── App.css                # Global styles
+│   │   ├── index.css              # Base Tailwind styles
+│   │   ├── main.tsx               # React entry point
+│   │   └── vite-env.d.ts          # Vite/TypeScript env types
+│   │
+│   ├── .env                       # Environment variables (API URLs, keys)
+│   ├── Dockerfile                 # Frontend container definition
+│   ├── eslint.config.js           # ESLint config
+│   ├── package.json               # Frontend dependencies
+│   ├── package-lock.json          # Lockfile
+│   ├── postcss.config.cjs         # PostCSS config (for Tailwind)
+│   ├── tailwind.config.js         # Tailwind CSS config
+│   ├── tsconfig.json              # TypeScript compiler config
+│   ├── vite.config.ts             # Vite bundler config
+│   └── indehtml
 │
 ├── docker-compose.yml        # Orchestration                    # Environment config
 └── README.md                 # Documentation
