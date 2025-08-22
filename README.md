@@ -1,21 +1,20 @@
 
-# 🌍 Interactive Geospatial Conservation Explorer
+# Interactive Geospatial Conservation Explorer
 
 A lightweight web application that displays interactive geospatial data for environmental monitoring, aligned with **Space4Good's conservation mission**.
 
 The focus of this assignment was **clean, maintainable code architecture**, clear documentation, and a minimal but working set of core features.
 
 
+## Setup Instructions
 
-# Setup Instructions
+### Prerequisites
 
-# Prerequisites
+* **Node.js** (>= 18.x)
+* **Python** (>= 3.10)
+* **Docker & Docker Compose** (for backend + TiTiler)
 
-  **Node.js** (>= 18.x)
-  **Python** (>= 3.10)
-  **Docker & Docker Compose** (for backend + TiTiler)
-
-# Run Frontend
+### Run Frontend
 
 ```bash
 cd frontend
@@ -25,7 +24,7 @@ npm run dev
 
 Visit: `http://localhost:5173`
 
-# Run Backend
+### Run Backend
 
 ```bash
 cd backend
@@ -35,7 +34,7 @@ uvicorn api.main:app --reload --port 8000
 
 Backend will run at `http://localhost:8000`
 
-# Run via Docker Compose
+### Run via Docker Compose
 
 ```bash
 docker-compose up --build
@@ -47,9 +46,8 @@ This spins up:
 * Backend (FastAPI proxy)
 * TiTiler (for Cloud-Optimized GeoTIFF streaming)
 
----
 
-# Architecture Overview
+## Architecture Overview
 
 ```plaintext
 geospatial-explorer/
@@ -80,7 +78,7 @@ geospatial-explorer/
 └── README.md                 # Documentation
 ```
 
-# Data Flow
+### Data Flow
 
 ```mermaid
 flowchart LR
@@ -107,9 +105,9 @@ flowchart LR
 
 ---
 
-# Features Implemented (Prioritized)
+## Features Implemented (Prioritized)
 
-# Core (Priority 1)
+### Core (Priority 1)
 
 1. **Map Foundation**
 
@@ -127,7 +125,7 @@ flowchart LR
    * Auto-selects first STAC item with `visual_href`
    * Displays satellite imagery + metadata
 
-# Not Implemented (due to time)
+### Not Implemented (due to time)
 
 * UI controls (layer toggles, opacity sliders, basemap switcher)
 * Backend caching/performance optimizations
@@ -135,9 +133,8 @@ flowchart LR
 
  **Reasoning**: We prioritized **Points 1–3** (core requirements) to deliver a clean, working foundation over adding half-finished extras.
 
----
 
-# Testing Strategy
+## Testing Strategy
 
 * **Frontend**:
 
@@ -150,20 +147,19 @@ flowchart LR
 
 * **CI-ready**: tests can run locally or in Docker.
 
----
 
-# Decisions & Trade-offs
+
+## Decisions & Trade-offs
 
 * **Stack choice**: Used **React + MapLibre + Tailwind** (instead of SvelteKit) for speed, since React was more familiar.
 * **Backend**: Kept backend minimal (FastAPI proxy + TiTiler) to show architecture without over-engineering.
 * **Performance**: Focused on correctness over optimization; raster loads are functional but could be cached.
 * **Testing**: Implemented minimal tests to demonstrate approach, prioritizing architecture clarity.
 
----
 
-# Challenges & Next Steps
+## Challenges & Next Steps
 
-# Challenges
+### Challenges
 
 * Handling **COG performance** (tile streaming can be slow without caching).
 * Ensuring **STAC metadata parsing** worked consistently across APIs.
@@ -177,7 +173,8 @@ flowchart LR
 * Deploy a demo (e.g. on Vercel + Render).
 
 
-## 📌 Summary
+
+## Summary
 
 This project demonstrates:
 
@@ -186,5 +183,6 @@ This project demonstrates:
 * A minimal but real **testing setup**
 * Clear **documentation of trade-offs and decisions**
 
- **Quality over completeness** — the core features are working, code is maintainable, and future extensions are easy to add.
+> **Quality over completeness** — the core features are working, code is maintainable, and future extensions are easy to add.
+
 
